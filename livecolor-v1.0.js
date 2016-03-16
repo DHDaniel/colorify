@@ -3,16 +3,37 @@
 // Date: 6 March 2016
 // Insert after importing JQuery, as it REQUIRES it
 
-// Might turn into repo
-
 // @param angle given as int, from 0 to 360 inclusive
 // @param element should be given as string, ready to use JQuery style with
 // $(element).function()
+// parameters after element are all optional.
 
-function Color(angle, element) {
+function Color(angle, element, sat, darkness, opacity) {
   this.angle = angle;
   this.element = element;
-  this.topped = false;
+
+  if (sat === undefined) {
+    this.saturation = 100;
+  } else {
+    this.saturation = sat;
+  }
+
+  if (darkness === undefined) {
+    this.darkness = 50;
+  } else {
+    this.darkness = darkness;
+  }
+
+  if (opacity === undefined) {
+    this.opacity = 1.0;
+  } else {
+    this.opacity = opacity;
+  }
+  this.opacity = opacity;
+  this.colorTopped = false;
+  this.satTopped = false;
+  this.darkTopped = false;
+  this.opacityTopped = false;
 
   // Colorifies background color of element
   this.colorify = function () {
@@ -26,27 +47,27 @@ function Color(angle, element) {
   };
 
   // takes in all values as integers within their respective range
-  this.colorifyCustom = function(bottom, top, sat, darkness, opacity, background) {
+  this.colorifyCustom = function(bottom, top, background) {
     // changes directions
-    if (angle == bottom) {
-      this.topped = false;
-    } else if (angle == top) {
-      this.topped = true;
+    if (this.angle == bottom) {
+      this.colorTopped = false;
+    } else if (this.angle == top) {
+      this.colorTopped = true;
     }
 
     // adds or subtracts
-    if (this.topped == true) {
-      angle = (angle - 1) % 360;
+    if (this.colorTopped == true) {
+      this.angle = (this.angle - 1) % 360;
     } else {
-      angle = (angle + 1) % 360;
+      this.angle = (this.angle + 1) % 360;
     }
 
     if (background) {
-      $(this.element).css("background-color", "hsla(" + angle.toString() + "," +
-                          sat.toString() + "%," + darkness.toString() + "%," + opacity.toString() + ")");
+      $(this.element).css("background-color", "hsla(" + this.angle.toString() + "," +
+                          this.saturation.toString() + "%," + this.darkness.toString() + "%," + this.opacity.toString() + ")");
     } else {
-      $(this.element).css("color", "hsla(" + angle.toString() + "," +
-                          sat.toString() + "%," + darkness.toString() + "%," + opacity.toString() + ")");
+      $(this.element).css("color", "hsla(" + this.angle.toString() + "," +
+                          this.saturation.toString() + "%," + this.darkness.toString() + "%," + this.opacity.toString() + ")");
     }
   };
 
