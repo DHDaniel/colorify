@@ -9,7 +9,7 @@
 ```html
 <!-- Remember to add the JQuery library first -->
 <script src="path/to/JQuery-vX.XX" type="text/javascript"></script>
-<script src="path/to/livecolor.js" type="text/javascript"></script>
+<script src="path/to/livecolor-vX.XX.js" type="text/javascript"></script>
 ```
 
 Once you have done this, you're ready to get started using LiveColor in your own scripts to add some life to the colours of your site!
@@ -24,13 +24,17 @@ To begin adding pretty colours to your site, you must create a new Color object 
 ```javascript
 var myColorObject = new Color(0, "#mydiv");
 ```
-Color objects all require **two** parameters to be initialised, an **angle** and an **element**.
+Color objects all require **two** parameters to be initialised, an **angle** and an **element**. The rest of the parameters are optional, but necessary if you wish to use all the methods offered effectively. Optional parameters are <span style="color: red;">saturation, darkness and opacity.</span>
 ```javascript
-var myColorObject = new Color(angle, element);
+var myColorObject = new Color(angle, element, saturation, darkness, opacity);
 ```
 The parameter **angle** must be provided as an integer between 0 and 360 (a full *color wheel*) and the parameter **element** must be provided as a string, ready to use JQuery-style, like `$("#mydiv").html("Hello");`. Therefore, the **element** parameter must match the ID, the class, or the type of element that you wish to customize.
 It is important to note that you must create a Color object for *each* element that you wish to apply the LiveColor effect to. If you have two divs or text areas that you want to customize, then you must create two Color objects.
-It is a good idea to set the **_angle_** value as the starting colour that you want your element to be. For example, if you wanted your starting colour to be blue, then you would use a value around 240 degrees. You can look at an example of a colour wheel [here](http://www.huecode.com). Note that in this example, the angle is given next to the "H" (representing *hue*).
+It is a good idea to set the **_angle_** value as the starting colour that you want your element to be. For example, if you wanted your starting colour to be blue, then you would use a value around 240 degrees. You can look at an example of a colour wheel [here](http://www.huecode.com). Note that in this example, the angle is given next to the "H" (representing *hue*).  
+The same applies for the optional parameters - they should be set at the starting value that is desired. For the optional parameters: the **saturation** parameter should be a value between 0 and 100 (by default, it is 100), the **darkness** parameter should be a value between 0 and 100 (by default, it is 50) and the **opacity** parameter should be a value between 0.0 and 1.0 (by default, is is 1.0, or "not transparent at all"). For example, this is how you would construct a Color object using all the parameters:
+```javascript
+var myColorObject = new Color(0, "#mydiv", 80, 50, 0.8);
+```
 
 ### Color methods
 
