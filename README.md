@@ -45,7 +45,7 @@ The Color object has these methods that you can implement in your scripts to add
 ---
 
 #### Color.colorify()
-This method will make your element's background colour fluctuate through all the colours of the colour wheel, giving it the appearance of a rainbow. It takes no parameters
+This method will make your element's background colour fluctuate through all the colours of the colour wheel, giving it the appearance of a rainbow. It takes no parameters. Note that if you are going to use the **colorify()** method, it is pointless to create an object with all the optional parameters as they will be overridden by the method.
 ```javascript
 // initialise Color object outside the interval function
 var myColorObj = new Color(0, "#mydiv");
@@ -75,15 +75,12 @@ setInterval(function () {
 
 ---
 
-#### Color.colorifyCustom( bottom, top, saturation, brightness, opacity, background)
+#### Color.colorifyCustom( bottom, top, background = true)
 
-This is probably the most useful function in the [LiveColor.js](#) plugin. It takes 6 **mandatory** parameters, all of which are necessary to provide a full custom experience. The parameters are:
+This is probably the most useful function in the [LiveColor.js](#) plugin. It takes 2 **mandatory** parameters, and one that is optional (set by default to *true*). The parameters are:
 
 * **_bottom_**: specifies the bottom angle value of the colour wheel. Must be between `0` and `360`.
 * **_top_**: specifies the top angle value of the colour wheel. Must be between `0` and `360`.
-* **_saturation_**: specifies the desired level of saturation. Must be an integer between `0` and `100` (it is a percentage). A value of `100` would represent the full original colour (e.g pure blue).
-* **_darkness_**: specifies the brightness of the colour as a percentage, `100` being completely white and `0` completely black. A level of `50` gives normal brightness.
-* **_opacity_**: specifies the transparency, given as a number between `0.0` and `1.0`. Works as you would expect, `1.0` being not transparent at all and `0.0` being fully transparent (not visible).
 * **_background_**: given as a boolean value, it specifies whether the background colour is being changed, or the text colour. A value of `true` would mean the background colour will be changed.
 
 In use:
@@ -96,11 +93,49 @@ var myColorObj = new Color(180, "#mydiv");
 // This will make the "#mydiv" element's background fluctuate through different shades of blue
 // function executes every 500 miliseconds
 setInterval(function () {
-	myColorObj.colorifyCustom(180, 250, 100, 50, 1.0, true);
+	myColorObj.colorifyCustom(180, 250);
 }, 500);
 ```
+Note that the optional parameter **background** is not provided, as we want to colorify the background. However, if we wanted to colorify the text, then we would use `myColorObj.colorifyCustom(180, 250, false);` instead.
+You can play around with all the values and the intervals at which the function executes, and have some fun!  
 
-You can play around with all the values and the intervals at which the function executes, and have some fun!
+The following functions are *very similar to the previous one*. They all take the **same** parameters **(bottom, top, background)**, only they represent different things.
+
+#### Color.saturify(bottom, top, background = true)
+Parameters *bottom* and *top* must be between 0 and 100. This function will make the element's saturation level fluctuate according to the bottom and top parameters.
+```javascript
+// initialise Color object outside the interval function
+// initialised at angle 180 to fluctuate between different shades of blue.
+// Note that the saturation parameter is passed
+var myColorObj = new Color(180, "#mydiv", 80);
+
+// interval function to repeatedly execute colorifyCustom()
+// This will make the "#mydiv" element's background fluctuate through different shades of blue
+// function executes every 500 miliseconds
+setInterval(function () {
+	// fluctuates colour
+	myColorObj.colorifyCustom(180, 250);
+    // fluctuates saturation
+    myColorObj.saturify(40, 80);
+}, 500);
+```
+**IMPORTANT NOTE:** when passing optional parameters to the Color object, you must take care. If you want to pass the optional parameter *saturation* without passing the rest, then the above code is valid. However, if you wanted to create an object and only modify the opacity, **you must pass all the other parameters as well**. In other words, you must explicitly provide all the other default values.
+```javascript
+// This is the proper way to do it, supplying the defaults explicitly.
+var myColorObj = new Color(0, "#mydiv", 100, 50, 0.8);
+
+// This will NOT work, as the program will think that 0.8 corresponds to saturation (as saturation is the first optional parameter).
+var myColorObj = new Color(0, "#mydiv", 0.8);
+```
+
+#### Color.brightify(bottom, top, background = true)
+
+This method works the same as the one above, and the parameters are in the same range - bottom and top must be between 0 and 100. The method will fluctuate the brightness of the element.
+
+#### Color.opacify(bottom, top, background = true)
+
+This method works the same as the one above, but the parameters must be between 0 and 1.0. The method fluctuates the opacity/transparency of the element.
 
 ## [Demo](#)
+
 See the full demo with examples [here](#).
