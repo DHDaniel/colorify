@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LiveColor Demo</title>
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+  <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+  <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+
+  <!-- Adding JS -->
+  <script src="js/jquery-2.2.0.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/livecolor-v1.0.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Initialising highlight.js -->
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand title-coloured" href="#">LiveColor.js</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="https://github.com/DHDaniel/livecolor">Docs</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+<!-- Landing page -->
+<div class="container-fluid">
+  <div class="container-fluid">
+    <a name="home"></a>
+    <div class="title">
+      <div class="container-fluid">
+        <h1 class="title-coloured" id="title">LiveColor.js</h1>
+        <p id="subtitle">Giving <span class="title-coloured">life</span> to your websites</p>
+        <a href="#examples"><button class="btn btn-primary">Look at examples</button></a>
+      </div>
+    </div>
+  </div>
+
+<!-- Start of examples -->
+<div class="well">
+  <a name="examples"></a>
+  <div id="examples-title">
+    <h1>LiveColor Demos</h1>
+    <h5>Here, you'll find demos and examples of how to use <strong>LiveColor.js</strong> to make your websites look
+      <span id="amazing-coloured">amazing</span>.
+    </h5>
+  </div>
+
+  <div class="examples">
+    <div class="row">
+
+      <!-- Colorify example -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="example-div" id="div-colorify">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>colorify()</strong> method</h3>
+        <p>Here, the <strong>colorify()</strong> method is being called, using the setInterval() function,
+           in order to color the div all the different colours that are availabe - going through "all the
+           colours of the rainbow", if you will.
+         </p>
+         <pre><code class="javascript">
+// assuming "#div-colorified" is the id of the div
+var divColorified = new Color(0, "#div-colorified");
+
+// You can use whatever time interval you want
+setInterval(function () {
+ divColorified.colorify();
+}, 100);
+         </code></pre>
+      </div>
+
+      <!-- Colorify Text example -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="example-div" id="div-colorifyText">
+          <h2>TEXT</h2>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>colorifyText()</strong> method</h3>
+        <p><strong>colorifyText()</strong> isn't very different from colorify() - all you need to do
+          is add "Text"! The rest is done exactly the same as the previous one.
+         </p>
+         <pre><code class="javascript">
+// assuming "#div-colorified-text" is the id of the div
+// we want this example to start at blue, so we set the angle parameter to 180.
+var divColorified = new Color(180, "#div-colorified-text");
+
+// You can use whatever time interval you want
+setInterval(function () {
+ divColorified.colorifyText();
+}, 100);
+         </code></pre>
+      </div>
+
+      <!-- Colorify Custom example -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="example-div" id="div-colorify-custom">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>colorifyCustom()</strong> method</h3>
+        <p>Here, the <strong>colorifyCustom()</strong> method is being called. Using this method, you can better specify exactly <em>what</em>
+          you want your element's colours to be.
+         </p>
+         <pre><code class="javascript">
+// assuming "#div-colorified-custom" is the id of the div
+var divColorified = new Color(0, "#div-colorified-custom");
+
+// You can use whatever time interval you want
+setInterval(function () {
+  // range we want to fluctuate in
+ divColorified.colorifyCustom(0, 180);
+}, 100);
+         </code></pre>
+      </div>
+
+      <!-- Saturify example -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="example-div" id="div-saturify">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>saturify()</strong> method</h3>
+        <p>This method deals with the saturation of objects. It will fluctuate through the specified
+          saturation values, making it go from a darker, bleaker colour to a brighter and more lively one. Brightify and
+          opacify are used exactly the same, so, for the sake of saving space (and your time!) examples of them are not
+          included.
+         </p>
+         <pre><code class="javascript">
+// assuming "#div-saturified" is the id of the div
+// notice that you must provide the "saturation" optional parameter.
+var divSaturified = new Color(0, "#div-saturified", 0);
+
+// You can use whatever time interval you want
+setInterval(function () {
+ divSaturified.saturify(0, 100);
+}, 100);
+         </code></pre>
+      </div>
+
+      <!-- Combine example -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="example-div" id="div-colorify-combine">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>colorify()</strong> and <strong>opacify()</strong> methods combined</h3>
+        <p>Here's a cool thing - you can use the methods together to create even more awesome effects!
+          Use any combination of methods, and let your creativity run wild.
+         </p>
+         <pre><code class="javascript">
+// assuming "#div-colorify-combine" is the id of the div
+// note that, since we are using opacify, we must specify all the values
+// up to opacity (the last one)
+var divCombined = new Color(0, "#div-colorify-combine", 100, 50, 1.0);
+
+// You can use whatever time interval you want
+setInterval(function () {
+ divCombined.colorify();
+ divCombined.opacify(0, 1.0);
+}, 100);
+         </code></pre>
+      </div>
+
+      <!-- Colorify background -->
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div id="div-background-behind">
+          <div class="example-div" id="div-background">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h3>Example of <strong>colorify()</strong> method using background</h3>
+        <p>This is an example of something that you can use LiveColor.js for. The background picture is a black-
+          and-white one, while the div that is on top of it is coloured using LiveColor, and slightly transparent.
+          It adds the effect that the image is "alive", if you will.
+         </p>
+         <pre><code class="html">
+&ltstyle&gt
+  #div-background {
+    background-image: url(caracas.jpg);
+  }
+&lt/style&gt
+
+&ltbody&gt
+  &ltdiv id="div-background"&gt
+    &ltdiv id="div-colorify"&gt
+    &lt/div&gt
+  &lt/div&gt
+&lt/body&gt
+
+&ltscript&gt
+  var divColorify = new Color(0, "#div-colorify", 100, 50, 0.3);
+
+  // You can use whatever time interval you want
+  setInterval(function () {
+   divColorify.colorify();
+  }, 100);
+&lt/script&gt
+         </code></pre>
+      </div>
+
+      <!-- Download section -->
+
+      <div class="col-xs-12 col-sm-12 col-md-12" id="bottom-notice">
+        <h1>Enough examples. Get coding!</h1>
+        <a href="https://github.com/DHDaniel/livecolor"><button class="btn btn-primary" id="download-button">Download <span class="badge">v1.0.2</span></button></a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+<footer class="footer">
+  <div class="container">
+  <p class="text-muted">Page by Daniel Hernández Hernández</p>
+  <p class="text-muted"><span class="glyphicon glyphicon-copyright-mark"></span> 2016 Daniel Hernández Hernández</p>
+  <p class="text-muted">LiveColor.js is provided under the <a href="https://opensource.org/licenses/MIT">MIT License</a></p>
+</div>
+</footer>
+</body>
+</html>
