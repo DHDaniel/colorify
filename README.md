@@ -1,10 +1,10 @@
 
-# [LiveColor.js](#)
+# [LiveColor.js](http://dhdaniel.github.io/livecolor/)
 
-[LiveColor.js](#) is a simple JQuery-based plugin that adds dynamic background and font colours to your website. It is small, easy to use, and
+[LiveColor.js](http://dhdaniel.github.io/livecolor/) is a simple JQuery-based plugin that adds dynamic background and font colours to your website. It is small, easy to use, and
 <span style="color: red;">**_colourful_**</span> (you'll see a better demo of this in the demo page).
 
-[LiveColor.js](#) is dead easy to use: just download it and link it to your HTML document using a `<script>` tag, that will probably look something like this:
+[LiveColor.js](http://dhdaniel.github.io/livecolor/) is dead easy to use: just download it and link it to your HTML document using a `<script>` tag, that will probably look something like this:
 
 ```html
 <!-- Remember to add the JQuery library first -->
@@ -15,7 +15,7 @@
 Once you have done this, you're ready to get started using LiveColor in your own scripts to add some life to the colours of your site!
 
 ## How to use
-As I mentioned before, using it is dead easy once you get a grasp of it. You might want to look at the demo [here](#) before reading the docs in order to understand what it does.
+As I mentioned before, using it is dead easy once you get a grasp of it. You might want to look at the demo [here](http://dhdaniel.github.io/livecolor/) before reading the docs in order to understand what it does.
 
 
 
@@ -136,6 +136,6 @@ This method works the same as the one above, and the parameters are in the same 
 
 This method works the same as the one above, but the parameters must be between 0 and 1.0. The method fluctuates the opacity/transparency of the element.
 
-## [Demo](#)
+## [Demo](http://dhdaniel.github.io/livecolor/)
 
-See the full demo with examples [here](#).
+See the full demo with examples [here](http://dhdaniel.github.io/livecolor/).
