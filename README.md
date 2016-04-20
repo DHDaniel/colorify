@@ -8,8 +8,8 @@
 
 ```html
 <!-- Remember to add the JQuery library first -->
-<script src="path/to/JQuery-vX.XX" type="text/javascript"></script>
-<script src="path/to/livecolor-vX.XX.js" type="text/javascript"></script>
+<script src="path/to/jquery.js" type="text/javascript"></script>
+<script src="path/to/livecolor.js" type="text/javascript"></script>
 ```
 
 Once you have done this, you're ready to get started using LiveColor in your own scripts to add some life to the colours of your site!
