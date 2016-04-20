@@ -2,7 +2,7 @@
 # [LiveColor.js](http://dhdaniel.github.io/livecolor/)
 
 [LiveColor.js](http://dhdaniel.github.io/livecolor/) is a simple JQuery-based plugin that adds dynamic background and font colours to your website. It is small, easy to use, and
-<span style="color: red;">**_colourful_**</span> (you'll see a better demo of this in the demo page).
+<span style="color: red;">**_colourful_**</span> (you'll see a better demo of this in the [demo page](http://dhdaniel.github.io/livecolor/)).
 
 [LiveColor.js](http://dhdaniel.github.io/livecolor/) is dead easy to use: just download it and link it to your HTML document using a `<script>` tag, that will probably look something like this:
 
