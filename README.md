@@ -14,6 +14,12 @@
 
 Once you have done this, you're ready to get started using LiveColor in your own scripts to add some life to the colours of your site!
 
+**Note**: `bower` installation is now supported! Simply use
+
+```bash
+$ bower install livecolor
+```
+
 ## How to use
 As I mentioned before, using it is dead easy once you get a grasp of it. You might want to look at the demo [here](http://dhdaniel.github.io/livecolor/) before reading the docs in order to understand what it does.
 
